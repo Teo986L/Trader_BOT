@@ -4,15 +4,17 @@
 ![Status](https://img.shields.io/badge/status-production%20ready-green)
 ![Versão](https://img.shields.io/badge/version-3.0--quantitativo-orange)
 ![Licença](https://img.shields.io/badge/license-MIT-lightgrey)
-![GitHub](https://img.shields.io/github/repo-size/Teo986L/Tradar_BOT)
+![GitHub](https://img.shields.io/github/repo-size/Teo986L/Trader_BOT)
 
 **Sistema automatizado de trading multi-ativo com hierarquia temporal, ignição dinâmica e proteção de risco zero.**
 
+> 📍 **URL oficial:** `https://github.com/Teo986L/Trader_BOT`
+
 ## 🚀 Visão Geral
 
-Tradar BOT é uma solução completa de trading automatizado que combina análise técnica multi-timeframe com gestão de risco avançada. O sistema opera 8 classes de ativos simultaneamente usando estratégias baseadas em confluência de indicadores e protocolos de proteção automática.
+Trader BOT é uma solução completa de trading automatizado que combina análise técnica multi-timeframe com gestão de risco avançada. O sistema opera 8 classes de ativos simultaneamente usando estratégias baseadas em confluência de indicadores e protocolos de proteção automática.
 
-### ✨ Características Principais
+## ✨ Características Principais
 
 ✅ **Sistema Multi-Ativo**: Forex, Criptomoedas, Commodities, Índices  
 ✅ **Hierarquia Temporal 24H/4H/5M**: Filtros de exaustão + tendência principal + execução  
@@ -26,7 +28,7 @@ Tradar BOT é uma solução completa de trading automatizado que combina anális
 ```bash
 # Clone o repositório
 git clone https://github.com/Teo986L/Trader_BOT.git
-cd Tradar_BOT
+cd Trader_BOT
 
 # Instale as dependências
 pip install pandas numpy pandas-ta
