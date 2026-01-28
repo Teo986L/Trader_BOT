@@ -1,4 +1,4 @@
-# 🤖 Tradar BOT - Sistema de Trading Quantitativo V3.0
+# 🤖 Trader BOT - Sistema de Trading Quantitativo V3.0
 
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue)
 ![Status](https://img.shields.io/badge/status-production%20ready-green)
@@ -25,7 +25,7 @@ Tradar BOT é uma solução completa de trading automatizado que combina anális
 
 ```bash
 # Clone o repositório
-git clone https://github.com/Teo986L/Tradar_BOT.git
+git clone https://github.com/Teo986L/Trader_BOT.git
 cd Tradar_BOT
 
 # Instale as dependências
