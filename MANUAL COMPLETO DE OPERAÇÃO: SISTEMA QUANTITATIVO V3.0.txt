@@ -1,0 +1,236 @@
+📘 MANUAL COMPLETO DE OPERAÇÃO: SISTEMA QUANTITATIVO V3.0
+
+1. FILOSOFIA DO SISTEMA
+O sistema opera sob o princípio da Confluência de Três Pilares:
+- Direção (Macro): Onde o "dinheiro inteligente" está indo (4H).
+- Força (Momentum): O mercado tem energia para romper? (ADX).
+- Proteção (Risco Zero): Garantir que o lucro não se transforme em perda.
+
+2. CONFIGURAÇÃO DE ATIVOS E TIMEFRAMES
+O sistema analisa simultaneamente três camadas temporais para cada ativo:
+- 24H (Diário): Define zonas de exaustão extrema.
+- 4H (Macro): Define a tendência principal via MACD e ADX.
+- 5M (Execução): Localiza o gatilho de entrada e gerencia o Trailing Stop.
+
+3. REGRAS DE OURO (PROTOCOLOS DE EXECUÇÃO)
+🛡️ A Regra de Lateralização (Lateralization Rule)
+Indispensável para evitar "moer" o capital em mercados sem direção:
+- Cenário de Baixa Volatilidade: Se o ADX 4H < 20, o sistema deve reduzir o tamanho do lote em 50% ou aguardar um rompimento de ignição.
+- Cenário de Expansão: Operações completas são liberadas apenas quando o ADX > 25, confirmando que há força para atingir o Take Profit.
+
+🔄 Regra de Correção Macro (Anti-Reversão)
+Para evitar comprar no topo de um repique em tendência de baixa:
+- Sinal Contraditório: Se o 4H for Bearish (MACD Negativo), mas os TFs menores (1H, 15M, 5M) estiverem positivos:
+  - Ação: Proibido comprar (CALL).
+  - Estratégia: Aguardar o sinal de PUT no 5M. Isso garante que você entre a favor da tendência principal após a "correção macro".
+
+⚡ Protocolo de Ignição e Risco Zero
+- Ignição Validada: A entrada ocorre quando o RSI 5M está em zona neutra (40-60) com ADX subindo.
+- Free Trade (Risco Zero): Assim que o preço atinge o primeiro nível de exaustão (RSI 5M > 70 ou < 30), o Stop Loss é movido para o Break-Even (Ponto de Entrada).
+
+4. KPIs E MÉTRICAS DE DESEMPENHO
+Para uma boa operação, o usuário deve monitorar semanalmente:
+- Expectativa Matemática: Deve ser sempre > 0.
+- Taxa de Eficiência de Proteção: Quantas operações chegaram ao Risco Zero antes de qualquer reversão.
+- Consistência de Sequência: Monitorar o "Max Drawdown" de sequências negativas para ajustar o capital.
+
+5. GUIA DE COMANDOS DO TERMINAL
+- `adicionar [ATIVO] [CAPITAL]`: Insere novo par no monitoramento (ex: adicionar XAUUSD 10000).
+- `remover [ATIVO]`: Remove um ativo da operação.
+- `listar`: Lista todos os ativos disponíveis e seus status.
+- `status [ATIVO]`: Mostra o "raio-x" técnico do ativo.
+- `iniciar [INTERVALO]`: Inicia ciclo quantitativo (intervalo padrão 60s).
+- `parar`: Para o ciclo automático.
+- `resumo`: Exibe painel quantitativo completo.
+- `analisar [ATIVO]`: Análise profunda de desempenho.
+- `salvar`: Salva configuração atual.
+- `carregar`: Carrega configuração salva.
+- `exemplo`: Executa demonstração rápida (30s).
+- `sair`: Sai do sistema.
+
+6. CHECKLIST PARA UMA "BOA OPERAÇÃO"
+Antes de iniciar o ciclo_quantitativo, verifique:
+[ ] O arquivo trading_config_quantitativo.json está atualizado?
+[ ] O capital alocado por bot respeita o gerenciamento de risco total (ex: max 2% por ativo)?
+[ ] O mercado 4H possui uma direção clara ou estamos em zona de lateralização (ADX < 20)?
+[ ] Todos os canais de alerta estão configurados e testados?
+[ ] Protocolos de emergência foram revisados?
+
+7. HIERARQUIA DE COMANDOS E PERMISSÕES
+Níveis de Acesso do Sistema:
+- 🔵 MODO LEITOR (VIEW-ONLY): Visualizar todos os painéis, histórico, análises. Sem execução.
+- 🟢 MODO OPERADOR (TRADER): Todas permissões do Leitor + adicionar/remover ativos, iniciar/parar ciclos, executar sinais manuais.
+- 🔴 MODO ADMIN (MASTER): Todas permissões do Operador + alterar configurações globais, modificar algoritmos, resetar estatísticas.
+
+8. CONFIGURAÇÃO DE ALERTAS E NOTIFICAÇÕES
+Alertas Obrigatórios:
+- ⚠️ NÍVEL 1 (CRÍTICO): STOP LOSS ATINGIDO, CAPITAL < 80% DO INICIAL, CONEXÃO PERDIDA > 1min.
+- ⚠️ NÍVEL 2 (IMPORTANTE): RISCO ZERO ATIVADO, NOVA POSIÇÃO ABERTA, POSIÇÃO FECHADA.
+- ⚠️ NÍVEL 3 (INFORMATIVO): SINAL FORTE DETECTADO, EXAUSTÃO 24H, ALTERAÇÃO DE STATUS 4H.
+
+Canais de Notificação:
+- 📱 Telegram: @TraderBot_Alerts (Obrigatório)
+- 📧 E-mail: alertas@seuemail.com (Opcional)
+- 🔔 Push Notification: App Mobile (Recomendado)
+- 🖥️ Desktop: Pop-up no Terminal (Ativo)
+
+9. MATRIZ DE DECISÃO EM CENÁRIOS ESPECÍFICOS
+Cenário 1: MERCADO LATERAL (ADX < 20)
+- STATUS: ⚠️ ALERTA AMARELO
+- AÇÃO: Reduzir lotes em 50%
+- REGRA: Aguardar ADX > 25 para operações completas
+
+Cenário 2: EXAUSTÃO DIÁRIA (RSI 24H > 75 ou < 25)
+- STATUS: 🔴 ALERTA VERMELHO
+- AÇÃO: Bloqueio total de novas posições
+- REGRA: Permitido apenas gerenciar posições abertas
+
+Cenário 3: DIVERGÊNCIA 4H/5M DETECTADA
+- STATUS: ⚡ ALERTA LARANJA
+- AÇÃO: Revisar análise manualmente
+- REGRA: Se divergência > 3 pontos, cancelar sinal
+
+10. PROTOCOLOS DE EMERGÊNCIA
+Protocolo A: "STOP TOTAL"
+- CONDIÇÃO: Drawdown > 15% do capital total
+- COMANDO: `emergencia stop_total`
+- AÇÃO: Fecha TODAS as posições, bloqueia operações por 24h, notifica Admin.
+
+Protocolo B: "RESET DE MERCADO"
+- CONDIÇÃO: 3 stops seguidos no mesmo ativo
+- COMANDO: `emergencia reset_mercado [ATIVO]`
+- AÇÃO: Remove ativo, aguarda 4h, reanalisa condições.
+
+Protocolo C: "PROTEÇÃO DE CAPITAL"
+- CONDIÇÃO: Capital < 70% do inicial
+- COMANDO: Automático
+- AÇÃO: Reduz risco para 1%, limita a 1 operação, exige confirmação manual.
+
+11. CHECKLIST DIÁRIO DE OPERAÇÃO
+Pré-Mercado (08:00 - 09:00):
+[ ] Verificar conexão com fontes de dados
+[ ] Confirmar capital disponível
+[ ] Revisar eventos econômicos
+[ ] Validar status dos bots
+[ ] Verificar atualizações de configurações
+
+Durante a Sessão (09:00 - 17:00):
+[ ] Monitorar painel quantitativo a cada 2h
+[ ] Registrar observações manuais
+[ ] Responder a alertas dentro de 5min
+[ ] Validar execuções automáticas
+[ ] Ajustar parâmetros se necessário
+
+Pós-Mercado (17:00 - 18:00):
+[ ] Gerar relatório diário automático
+[ ] Revisar todas as operações do dia
+[ ] Atualizar estatísticas manuais
+[ ] Planejar ajustes para o próximo dia
+[ ] Fazer backup do sistema
+
+12. MATRIZ DE RISCOS E MITIGAÇÕES
+Riscos Técnicos:
+- Perda de conexão: 3 fontes alternativas + cache local
+- Bug no algoritmo: Circuit breaker + rollback automático
+- Atraso na execução: Sistema de fila prioritária + timeout
+
+Riscos de Mercado:
+- Gap de abertura: Não operar primeiros 15min
+- Alta volatilidade: Aumentar SL dinamicamente
+- Liquidez insuficiente: Verificar volume mínimo antes de operar
+
+13. GLOSSÁRIO DE TERMOS TÉCNICOS
+- 🔵 Ignição: Condição ideal de entrada (ADX > 25 + RSI neutro)
+- 🟢 Risco Zero: Ponto onde SL = Entry (operando sem risco)
+- 🔴 Exaustão: Zona onde RSI indica reversão (≥70 ou ≤30)
+- 📈 Hierarquia Temporal: Sistema 24H → 4H → 5M
+- 📉 Confluência: Alinhamento de 2+ indicadores no mesmo sentido
+- ⚡ Gatilho: Movimento do RSI 5M saindo de zona neutra
+- 💰 Expectativa Matemática: (WinRate × LucroMédio) - (LossRate × PrejuízoMédio)
+- 📊 Drawdown: Máxima perda acumulada desde pico de capital
+- 🎯 Eficiência: % de operações que atingiram Risco Zero
+
+14. RELATÓRIOS E AUDITORIA
+Relatórios Automáticos:
+- 📋 DIÁRIO (18:00): Operações do dia, P/L total, alertas, status.
+- 📋 SEMANAL (Segunda 09:00): Performance vs meta, análise estatística, sugestões.
+- 📋 MENSAL (Primeiro dia útil): Retorno acumulado, drawdown máximo, win rate.
+
+Logs de Auditoria:
+- 🕐 Log de Execução: Todas as ordens (abertura/fechamento)
+- 📊 Log de Análise: Todos os sinais gerados
+- 🔔 Log de Alertas: Todas as notificações enviadas
+- ⚙️ Log de Configuração: Todas as alterações de parâmetros
+
+15. FAQ - PERGUNTAS FREQUENTES
+Q1: O sistema opera 24/7?
+R: Não. Opera apenas em horário de mercado (09:00-17:00) com pausa para notícias importantes.
+
+Q2: Posso operar manualmente junto com o bot?
+R: Sim, mas recomendamos usar conta separada ou diferentes símbolos para não interferir.
+
+Q3: Quantos ativos posso operar simultaneamente?
+R: Até 5 ativos com capital > R$50k. Acima disso, 8 ativos máximo.
+
+Q4: O que fazer se o sistema parar de responder?
+R: Executar `emergencia stop_total` e contatar suporte.
+
+Q5: Como saber se os parâmetros precisam de ajuste?
+R: O sistema gera alertas semanais. Se Win Rate < 40% por 2 semanas, ajuste é necessário.
+
+Q6: Posso modificar o código do algoritmo?
+R: Apenas usuários ADMIN. Modificações devem ser testadas em conta demo por 1 semana.
+
+16. CONTATOS DE SUPORTE
+Níveis de Suporte:
+- 🟢 NÍVEL 1 (USUÁRIO): Dúvidas operacionais, configurações básicas - suporte@traderbot.com
+- 🟡 NÍVEL 2 (TÉCNICO): Problemas técnicos, ajuste de parâmetros - tecnico@traderbot.com
+- 🔴 NÍVEL 3 (EMERGÊNCIA): Perda de conexão, bugs críticos, perdas anormais - emergencia@traderbot.com (24/7)
+
+Canais de Comunicação:
+- 📞 WhatsApp Suporte: +55 (11) 99999-9999 (09:00-18:00)
+- 📧 E-mail Prioritário: prioridade@traderbot.com
+- 💬 Telegram Oficial: @TraderBot_Support
+- 🆘 Botão Pânico: No aplicativo (fecha tudo + notifica)
+
+17. CHECKLIST DE IMPLANTAÇÃO
+Fase 1: Preparação (Dia 1-2)
+[ ] Criar contas demo em todas as corretoras
+[ ] Configurar todos os canais de alerta
+[ ] Testar protocolos de emergência
+[ ] Treinar equipe nos comandos básicos
+[ ] Estabelecer metas realistas
+
+Fase 2: Testes (Dia 3-7)
+[ ] Operar apenas em conta demo
+[ ] Validar todos os alertas
+[ ] Testar todos os protocolos
+[ ] Ajustar parâmetros iniciais
+[ ] Documentar aprendizados
+
+Fase 3: Live Controlada (Dia 8-14)
+[ ] Operar com capital mínimo (10% do planejado)
+[ ] Monitorar 24/7 primeira semana
+[ ] Revisar todas as operações
+[ ] Ajustar finamente os parâmetros
+[ ] Validar relatórios automáticos
+
+Fase 4: Operação Plena (Dia 15+)
+[ ] Aumentar capital gradualmente
+[ ] Manter rotina de monitoramento
+[ ] Revisar performance semanal
+[ ] Atualizar manual conforme necessário
+[ ] Expandir para novos ativos
+
+🎯 DECLARAÇÃO DE RESPONSABILIDADE
+ATENÇÃO: Este sistema é uma ferramenta de apoio à decisão. O operador final é responsável por:
+1. Monitorar o sistema regularmente
+2. Validar condições de mercado excepcionais
+3. Manter controle de risco dentro dos limites estabelecidos
+4. Reportar imediatamente qualquer anomalia
+
+NÃO É UM SISTEMA "LIGUE E ESQUEÇA". Requer supervisão humana constante.
+
+ÚLTIMA ATUALIZAÇÃO: DD/MM/AAAA
+VERSÃO DO MANUAL: 3.0 COMPLETO
+VÁLIDO PARA: Trader Bot Quantitativo V3.01+
